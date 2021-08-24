@@ -16,7 +16,7 @@ alert ("text");
 const answer = prompt("вопрос","default ");
 console.log(typeOf(answer));*/
 
-const numberOfFilms= +prompt("Сколько фильмов вы уже посмотрелиЬ","");
+const numberOfFilms= +prompt("Сколько фильмов вы уже посмотрели","");
 const personalMovieDB = {
     count: numberOfFilms,
     movies: {},
@@ -25,11 +25,25 @@ const personalMovieDB = {
     privat: false
 
 };
-const a = prompt("Один из последних просморенныж фильмов?",""),
-    b = prompt("На сколько оцените его?",""),
-    c = prompt("Один из последних просморенныж фильмов?",""),
-    d = prompt("На сколько оцените его?","");
+    for(let i=0;i<2;i++){
+        const a = prompt("Один из последних просморенных фильмов?",""),
+            b = prompt("На сколько оцените его?","");
+            if (a != null && b != null  && a != "" && b !="" && a.length <50 ){
+                personalMovieDB.movies[a] = b;
+                console.log("done");
+            }else{
+                console.log("error");
+                i--;
+            }
 
-personalMovieDB.movies[a] = b;
-personalMovieDB.movies[c] = d;
+}
+    if (personalMovieDB.count < 10 ){
+        console.log(1);
+    }else if (personalMovieDB >= 10 && personalMovieDB < 30){
+        console.log(2);
+    }else if (personalMovieDB >= 30){
+        console.log(3);
+    }else {
+        console.log("Error");
+}
 console.log(personalMovieDB);
